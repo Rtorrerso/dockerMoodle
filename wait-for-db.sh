@@ -10,4 +10,3 @@ done
 
 echo "✅ Base de datos disponible, iniciando Moodle..."
 exec /opt/bitnami/scripts/moodle/entrypoint.sh /opt/bitnami/scripts/moodle/run.sh
-
