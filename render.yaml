@@ -12,7 +12,7 @@ services:
       - key: MOODLE_DATABASE_HOST
         fromService:
           name: moodle-db
-          type: pserv
+          type: host
       - key: MOODLE_DATABASE_PORT_NUMBER
         value: 5432
       - key: MOODLE_DATABASE_NAME
