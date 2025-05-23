@@ -33,4 +33,3 @@ databases:
     plan: free
     databaseName: moodle
     user: moodle_user
-    password: moodle_pass
