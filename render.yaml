@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: moodle
+    env: docker
+    plan: free
+    branch: main
+    autoDeploy: false
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: MOODLE_DATABASE_TYPE
+        value: pgsql
+      - key: MOODLE_DATABASE_HOST
+        fromService:
+          name: moodle-db
+          type: pserv
+      - key: MOODLE_DATABASE_PORT_NUMBER
+        value: 5432
+      - key: MOODLE_DATABASE_NAME
+        value: moodle
+      - key: MOODLE_DATABASE_USER
+        value: moodle_user
+      - key: MOODLE_DATABASE_PASSWORD
+        value: moodle_pass
+      - key: MOODLE_USERNAME
+        value: admin
+      - key: MOODLE_PASSWORD
+        value: admin123
+      - key: MOODLE_EMAIL
+        value: admin@example.com
+
+databases:
+  - name: moodle-db
+    plan: free
+    databaseName: moodle
+    user: moodle_user
+    password: moodle_pass
