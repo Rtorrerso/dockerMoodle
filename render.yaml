@@ -10,9 +10,9 @@ services:
       - key: MOODLE_DATABASE_TYPE
         value: pgsql
       - key: MOODLE_DATABASE_HOST
-        fromService:
+        fromDatabase:
           name: moodle-db
-          type: host
+          property: host
       - key: MOODLE_DATABASE_PORT_NUMBER
         value: 5432
       - key: MOODLE_DATABASE_NAME
@@ -20,7 +20,9 @@ services:
       - key: MOODLE_DATABASE_USER
         value: moodle_user
       - key: MOODLE_DATABASE_PASSWORD
-        value: moodle_pass
+        fromDatabase:
+          name: moodle-db
+          property: password
       - key: MOODLE_USERNAME
         value: admin
       - key: MOODLE_PASSWORD
