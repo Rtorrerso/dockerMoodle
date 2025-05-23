@@ -1,4 +1,6 @@
 FROM bitnami/moodle:latest
 
-# No necesitas hacer mucho, ya que esta imagen incluye PHP, Apache y Moodle
-# Solo asegúrate de pasar las variables correctas desde Render
+COPY wait-for-db.sh /wait-for-db.sh
+RUN chmod +x /wait-for-db.sh
+
+ENTRYPOINT ["/wait-for-db.sh"]
