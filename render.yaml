@@ -1,4 +1,4 @@
-wait-for-db script taservices:
+services:
   - type: web
     name: moodle
     env: docker
